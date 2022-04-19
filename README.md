@@ -12,4 +12,3 @@
 - REST API
 - ExpressJS
 - Jest
-- Frisby
