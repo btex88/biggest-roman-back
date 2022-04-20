@@ -1,6 +1,6 @@
 // Default libs used throughout the project
 import express, { Application } from 'express';
-import routes from '../routes';
+import routes from '../../routes';
 
 // Express variable that will manage REST methods
 const app: Application = express();

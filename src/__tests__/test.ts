@@ -1,4 +1,4 @@
-import app from './index.test';
+import app from './helpers/server';
 import request from 'supertest';
 
 describe('Test post route "/search"', () => {
