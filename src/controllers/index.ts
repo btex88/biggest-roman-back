@@ -1,23 +1,10 @@
-import { Request, Response, NextFunction } from 'express';
-import { checkInput, validateInput } from '../helpers';
+import { RequestHandler } from 'express';
+import { getRomanValues } from '../services';
 
-interface express {
-  req: Request;
-  res: Response;
-  next: NextFunction;
-}
-
-function handlePostRequest({ req, res, next }: express) {
-  const text: string = req.body ?? null;
-  if (checkInput(text)) {
-    const { status, data } = validateInput(text);
-    return res.status(status).send(data);
-  }
-  return next();
-}
-
-function handleError({ req, res }: express) {
+const handlePostRequest: RequestHandler = (req, res) => {
+  const text: string = req.body.text;
+  const [status, data] = getRomanValues(text);
   return res.status(status).send(data);
 }
 
-export { handlePostRequest, handleError };
+export { handlePostRequest };

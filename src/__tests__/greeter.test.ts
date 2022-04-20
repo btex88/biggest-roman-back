@@ -1,5 +1,5 @@
 import greeter from '../greeter';
 
-test('Greeter', () => {
+test('greeter', () => {
   expect(greeter('Bruno')).toBe('Hello Bruno!');
 });

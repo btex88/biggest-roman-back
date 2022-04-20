@@ -1,8 +1,9 @@
 import { Router } from 'express';
-import { handlePostRequest, handleError } from '../controllers';
+import { handlePostRequest } from '../controllers';
+import { validateRequest } from '../middlewares';
 
 const router: Router = Router();
 
-router.post('/search', handlePostRequest, handleError);
+router.post('/search', validateRequest, handlePostRequest);
 
 export default router;

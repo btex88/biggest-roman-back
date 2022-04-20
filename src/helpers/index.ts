@@ -1,8 +1,6 @@
-function checkInput(inputValue: string = '') {
-  if (!inputValue.length) return false;
-  return true;
-}
+export const romanPattern: Array<string> = ['I', 'V', 'X', 'L', 'C', 'D', 'M'];
 
-function validateInput(inputValue: string) {}
+export const checkInput = (inputValue: string) => inputValue.length > 0;
 
-export { checkInput, validateInput };
+export const validateInput = (inputValue: string) => inputValue.split('')
+  .some((letter) => romanPattern.includes(letter));
