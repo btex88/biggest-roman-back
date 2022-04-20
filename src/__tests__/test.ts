@@ -31,7 +31,7 @@ describe('POST /search - Test invalid input requests', () => {
 
 describe('POTS /search - Test valid input requests', () => {
   it('check post response for a valid input', async () => {
-    const text = 'vialjdc';
+    const text = 'viiiahglsgnvohwyieqhcnxopsidfgfuijoajdc';
     const result = await request(app).post('/search').send({ text });
 
     expect(result.statusCode).toBe(200);
