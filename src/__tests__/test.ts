@@ -21,20 +21,21 @@ describe('POST /search - Test invalid input requests', () => {
   it('check post response for a invalid input', async () => {
     const text = 'qwertyuopasfghjkçzbn';
     const result = await request(app).post('/search').send({ text });
+
+    expect(result.statusCode).toBe(400);
     expect(result.body.message).toBe(
       'Input has no letters that matches any roman number',
     );
-    expect(result.statusCode).toBe(400);
   });
 });
 
-// describe('POTS /search - Test valid input requests', () => {
-//   it('check post response for a valid input', async () => {
-//     const text = 'qwertyuopasfghjkçzbn';
-//     const result = await request(app).post('/search').send({ text });
-//     expect(result.body.message).toBe(
-//       'Input has no letters that matches any roman number',
-//     );
-//     expect(result.statusCode).toBe(400);
-//   });
-// });
+describe('POTS /search - Test valid input requests', () => {
+  it('check post response for a valid input', async () => {
+    const text = 'vialjdc';
+    const result = await request(app).post('/search').send({ text });
+
+    expect(result.statusCode).toBe(200);
+    expect(result.body.number).toBe('');
+    expect(result.body.value).toBe(0);
+  });
+});
