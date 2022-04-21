@@ -47,7 +47,7 @@ export const handleValues = (arr: Array<string>) => {
   return resultArr;
 };
 
-export const handleResult = (arrRoman: string[], arrValues: number[]) => {
+export const handleResult = (arrRoman: Array<string>, arrValues: Array<number>) => {
   const sortedValues: number[] = [...arrValues].sort((value1, value2) => value2 - value1);
   const numIndex: number = arrValues.indexOf(sortedValues[0]);
   return {
