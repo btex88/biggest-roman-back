@@ -28,7 +28,7 @@ export const validateInput = (text: string) => {
   return false;
 };
 
-export const handleRomanValues = (text: string) => {
+export const handleRomans = (text: string) => {
   const textArr: Array<string> = text.toUpperCase().split('');
   const result: string = textArr.reduce((acc, letter) => {
     if (romanPattern.includes(letter)) acc += letter;
@@ -36,4 +36,22 @@ export const handleRomanValues = (text: string) => {
     return acc;
   }, '');
   return result.split(' ').filter((value) => value !== '');
+};
+
+export const handleValues = (arr: Array<string>) => {
+  const resultArr: Array<number> = arr.reduce((acc, curr) => {
+    const valuesArr = curr.split('').map((value) => romanValues[value]);
+    acc.push(valuesArr.reduce((accum, current) => accum + current));
+    return acc;
+  }, []);
+  return resultArr;
+};
+
+export const handleResult = (arrRoman: string[], arrValues: number[]) => {
+  const sortedValues: number[] = [...arrValues].sort((value1, value2) => value2 - value1);
+  const numIndex: number = arrValues.indexOf(sortedValues[0]);
+  return {
+    number: arrRoman[numIndex],
+    value: arrValues[numIndex],
+  }
 };

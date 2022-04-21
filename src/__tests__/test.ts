@@ -35,7 +35,16 @@ describe('POTS /search - Test valid input requests', () => {
     const result = await request(app).post('/search').send({ text });
 
     expect(result.statusCode).toBe(200);
-    expect(result.body.number).toBe('');
-    expect(result.body.value).toBe(0);
+    expect(result.body.number).toBe('DC');
+    expect(result.body.value).toBe(600);
+  });
+
+  it('check post response for another valid input', async () => {
+    const text = 'DCCXXXIIIasdasdXXXcl';
+    const result = await request(app).post('/search').send({ text });
+
+    expect(result.statusCode).toBe(200);
+    expect(result.body.number).toBe('DCCXXXIII');
+    expect(result.body.value).toBe(733);
   });
 });
