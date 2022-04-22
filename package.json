@@ -5,7 +5,7 @@
   "main": "src/server.ts",
   "jest": {
     "verbose": true,
-    "modulePathIgnorePatterns": ["/src/__tests__/helpers"],
+    "modulePathIgnorePatterns": ["/src/__tests__/helpers", "/dist"],
     "collectCoverage": true
   },
   "files": [
