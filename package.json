@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "API to resolve a bulk of letters into the biggest roman number included in it",
   "main": "src/server.ts",
+  "jest": {
+    "verbose": true,
+    "modulePathIgnorePatterns": ["/src/__tests__/helpers"]
+  },
   "files": [
     "lib/**/*"
   ],
