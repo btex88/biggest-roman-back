@@ -9,6 +9,9 @@
 
 ## Technologies and libs used in this project.
 - NodeJS
+- TypeScript
 - REST API
 - ExpressJS
 - Jest
+- Actions GitHub - CI
+- Dockerfile
