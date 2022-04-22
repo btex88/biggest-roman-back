@@ -89,6 +89,11 @@ describe('Test handleValues helper function', () => {
     const result = handleValues(['VI', 'DX', 'L']);
     expect(result).not.toStrictEqual([6, 60, 100]);
   });
+
+  it('', () => {
+    const result = handleValues(['VII', 'XIII', 'DC']);
+    expect(result).toStrictEqual([7, 13, 600]);
+  });
 });
 
 describe('Test handleResult helper function', () => {
@@ -98,7 +103,7 @@ describe('Test handleResult helper function', () => {
   });
 
   it('check if "handleResult" returns an array with roman numbers values', () => {
-    const result = handleResult(['VI'], [6]);
-    expect(result).toStrictEqual({ number: 'VI', value: 6 });
+    const result = handleResult(['IV'], [4]);
+    expect(result).toStrictEqual({ number: 'IV', value: 4 });
   });
 });

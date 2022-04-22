@@ -1,51 +1,62 @@
-export const romanPattern: Array<string> = ['I', 'V', 'X', 'L', 'C', 'D', 'M'];
-
 type objRomanValues = {
-  I: number;
-  V: number;
-  X: number;
-  L: number;
-  C: number;
-  D: number;
   M: number;
+  D: number;
+  C: number;
+  L: number;
+  X: number;
+  V: number;
+  I: number;
 };
 
-export const romanValues: objRomanValues = {
-  I: 1,
-  V: 5,
-  X: 10,
-  L: 50,
-  C: 100,
-  D: 500,
+const romanValuesObj: objRomanValues = {
   M: 1000,
+  D: 500,
+  C: 100,
+  L: 50,
+  X: 10,
+  V: 5,
+  I: 1,
 };
+
+type romanObjType = {};
 
 export const validateInput = (text: string) => {
   if (text.length) {
     const textArr: Array<string> = text.split('');
-    return textArr.some((letter) => romanPattern.includes(letter.toUpperCase()));
+    const romanLabelsArr: Array<string> = Object.keys(romanValuesObj);
+    return textArr.some((letter) => romanLabelsArr.includes(letter.toUpperCase()));
   }
   return false;
 };
 
 export const handleRomans = (text: string) => {
   const textArr: Array<string> = text.toUpperCase().split('');
+  const romanLabelsArr: Array<string> = Object.keys(romanValuesObj);
+
   const result: string = textArr.reduce((acc, letter) => {
-    if (romanPattern.includes(letter)) acc += letter;
+    if (romanLabelsArr.includes(letter)) acc += letter;
     else acc += ' ';
     return acc;
   }, '');
+
   return result.split(' ').filter((value) => value !== '');
 };
 
-export const handleValues = (arr: Array<string>) => {
-  const resultArr: Array<number> = arr.reduce((acc, curr) => {
-    const valuesArr = curr.split('').map((value) => romanValues[value]);
-    acc.push(valuesArr.reduce((accum, current) => accum + current));
+const handleRomanValues = (romanStr: string) => {
+  const romanInputArr = Array.from(romanStr);
+  const romanLabelsArr = Object.keys(romanValuesObj);
+
+  return romanInputArr.reduce((acc, curr, index) => {
+    if (
+      index < romanInputArr.length - 1 &&
+      romanLabelsArr.indexOf(curr) > romanLabelsArr.indexOf(romanInputArr[index + 1])
+    ) acc -= romanValuesObj[curr];
+    else acc += romanValuesObj[curr];
     return acc;
-  }, []);
-  return resultArr;
+  }, 0);
 };
+
+export const handleValues = (arr: Array<string>) => arr.map(handleRomanValues);
 
 export const handleResult = (arrRoman: Array<string>, arrValues: Array<number>) => {
   const sortedValues: number[] = [...arrValues].sort((value1, value2) => value2 - value1);
@@ -53,5 +64,5 @@ export const handleResult = (arrRoman: Array<string>, arrValues: Array<number>) 
   return {
     number: arrRoman[numIndex],
     value: arrValues[numIndex],
-  }
+  };
 };
