@@ -6,7 +6,7 @@
 - The goal of this project is to develop a backend part of the application that will handle a text input and return the biggest roman number included in that text.
 
 ## Technologies and libs used in this project.
-- NodeJS
+- [NodeJS](https://nodejs.org/en/) for running the JS engine Chrome's V8.
 - [ESLint](https://eslint.org/) for enforcing code style.
 - [TypeScript](https://www.typescriptlang.org/) for implementing typed code into JavaScript.
 - [REST API / RESTful API](https://www.redhat.com/en/topics/api/what-is-a-rest-api) for using a client-server architecture throughout the HTTP web application.
@@ -42,18 +42,29 @@ and will provide a response like this:
 ### Getting Started
 ##### Step 01
 - To run locally you gotta clone the repository into you machine using the following command in your terminal:
-```git clone git@github.com:btex88/biggest-roman-back.git```
+```
+git clone git@github.com:btex88/biggest-roman-back.git
+```
 
 #### Step 02
 - You must install all dependencies and packages used in this project with the following command:
-```npm install```
+```
+npm install
+```
 
 #### Step 03
-- You must run ```npm start``` to run it locally.
+- After **Step 01** and **Step 02** being completed you must run the following command:
+```
+npm start
+```
 - **OBS:** By default the API runs on port ```8080``` if you wanna connect to an specific port you mus setup a ```.env``` file at the root of the project and add the following:
-```PORT=<YOUR_PORT_OF_CHOICE>```
+```
+PORT=<YOUR_PORT_OF_CHOICE>
+```
 ex.
-```PORT=5000```
+```
+PORT=5000
+```
 
 ### Running in a Docker container
 - If you prefer to run the API in a container you may run the Dockerfile script to do it so.
@@ -70,8 +81,10 @@ ex.
 
 #### Step 03
 - After **Step 02** is successfully finished you may run your container with the following command:
-```docker run -p 8080:8080 -d biggest_roman:dev```
-- This will start the container and mirror it's port 8080 into the port 8080 of you local machine, so you might use your the ```localhost:8080``` url to connect into the API.
+```
+docker run -p 8080:8080 -d biggest_roman:dev
+```
+- This will start the container and mirror it's port 8080 into the port 8080 of your local machine, so you might use the ```localhost:8080``` url to connect into the API.
 
 ### Heroku Deployment API
 - Backend API base URL  - ```https://biggest-roman-back.herokuapp.com/```.
