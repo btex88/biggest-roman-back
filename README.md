@@ -1,9 +1,9 @@
-# Biggest Roman
+# Biggest Roman API
 
 ## What it this and why it exists?
-- This is an API project developed in NodeJS using REST API architecture that will receive an sentence with letters and returns what is the biggest roman number included in it.
+- This is an API project developed in NodeJS using REST API architecture that will receive an sentence with letters and returns what is the highest roman number included in it.
 - This project was developed as a technical challenge for a back-end role which I've applied to.
-- The goal of this project is to develop a backend part of the application that will handle a text input and return the biggest roman number included in that text.
+- The goal of this project is to develop a backend part of the application that will handle a text input and return the highest roman number included in that text.
 
 ## Technologies and libs used in this project.
 - [NodeJS](https://nodejs.org/en/) for running the JS engine Chrome's V8.
@@ -75,9 +75,11 @@ PORT=5000
 
 #### Step 02
 - After step 01 is done you may open your terminal, got to the root of the local repository and run the following command:
-```docker build -t biggest_roman:dev .```
+```
+docker build -t biggest_roman:dev .
+```
 - That command will be responsible for telling the docker to search for a Dockerfile in the current path and run that config which will setup and build the container image.
-- Here is important to notice that the image is being flagged a ```:dev```.
+- Here is important to notice that the image is being flagged as ```:dev```.
 
 #### Step 03
 - After **Step 02** is successfully finished you may run your container with the following command:
