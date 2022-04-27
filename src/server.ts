@@ -11,7 +11,7 @@ import routes from './routes';
 const app: Application = express();
 
 // Variable to set default port that will be used
-const PORT: any = process.env.PORT ?? 8080;
+const PORT: string = process.env.PORT || '8080';
 
 // Takes care of CORS middleware
 app.use(cors());
